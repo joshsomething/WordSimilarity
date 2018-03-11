@@ -25,11 +25,11 @@ for i in "$@"
 do
 case $i in
     --macos*)
-    OS="macos"
+    os="macos"
     shift # past argument=value
     ;;
     --linux*)
-    SEARCHPATH="linux"
+    os="linux"
     shift # past argument=value
     ;;
     *)
@@ -39,9 +39,9 @@ esac
 done
 
 bin/pip install sklearn cv2 numpy pandas SIP 
-if [os -eq "macos"];
+if [$os -eq "macos"];
 	curl -o PyQt4.tar.gz --tlsv1.2 https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.12.1/PyQt4_gpl_mac-4.12.1.tar.gz
-if [os -eq "linux"];
+if [$os -eq "linux"];
 	curl -o PyQt4.tar.gz --tlsv1.2 https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.12.1/PyQt4_gpl_mac-4.12.1.tar.gz
 
 tar -xfz PyQt4.tar.gz
