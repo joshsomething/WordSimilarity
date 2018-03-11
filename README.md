@@ -1,7 +1,7 @@
 WordSimilarity —— Important Instructions:
 ----
 
-###Getting da software:
+### Getting da software:
 * python: [python3](https://www.python.org/downloads/)
 * java:
  * windows and macos: [openjdk](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -16,12 +16,12 @@ WordSimilarity —— Important Instructions:
   * ubuntu: `sudo apt-get install python-qt4 qt4-dev-tools libxext-dev build-essential`
  * windows: `curl https://download.lfd.uci.edu/pythonlibs/n1rrk3iq/PyQt4-4.11.4-cp35-cp35m-win_amd64.whl`
 
-###Setting the stuff up: 
+### Setting the stuff up: 
 * `virtualenv $(pwd)`
 * `bash setup.sh --macos` if macos
 * `bash setup.sh --linux` if linux
 
-###Using the software:
+### Using the software:
 After following the instructions above, to properly use the code in this directory:
 * Before you start running the software here, run `source bin/activate` from the WordSimilarity folder.
 * After using the software here, run `deactivate`.
