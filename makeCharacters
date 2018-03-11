@@ -1,0 +1,51 @@
+#!/bin/bash
+
+
+#	Copyright 2018 Joshua Danielpour
+#
+#
+#	This file is part of WordSimilarity.
+#
+#   WordSimilarity is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+
+#   WordSimilarity is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+
+#   You should have received a copy of the GNU General Public License
+#   along with WordSimilarity.  If not, see <http://www.gnu.org/licenses/>.
+    
+
+
+# Generates characters in dir characters for the comparison dataset:
+
+#image pictures are 50 by 56 (x by y)
+#all images are left-adjusted without additional configuration
+
+
+# characters a to z:
+for letter in {a..z};
+do
+	java TextToGraphics $letter #create picture
+	python characters/adjustImage.py $letter #center image
+done
+
+# characters 0 to 9:
+for digit in {0..9};
+do
+	java TextToGraphics $digit #create picture
+	python characters/adjustImage.py $digit #center image
+done
+
+# create a blank character:
+echo " " | java TextToGraphics
+
+#rename character
+cat "characters/\ .png" > "characters/blank.png"
+
+rm "characters/\ .png"
+python "characters/adjustImage.py" blank.png
