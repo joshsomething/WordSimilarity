@@ -32,7 +32,7 @@ def findRight(image): #scan each column from top to bottom:
 			if (image[row][col] <= 180):
 				#we'll increment mostRight, and go to the next column
 				#when we get contact with a black pixel:
-				mostRight++
+				mostRight += 1
 				break
 		#if no black(ish) pixel is in the current column, then stop searching:
 		if (mostRight - 1 != col):
@@ -46,7 +46,7 @@ def findTop(image):
 		for col in range(56):
 			if (image[row][col] <= 180):
 				break
-			mostUp++
+			mostUp += 1
 		if (mostUp - 1 != col):
 			return mostUp
 
@@ -58,7 +58,7 @@ def findBottom(image):
 		for col in reversed(range(56)):
 			if (image[row][col] <= 180):
 				break
-			mostDown--
+			mostDown -= 1
 		if (mostDown + 1 != col):
 			return mostDown
 

@@ -1,6 +1,6 @@
-#Copyright 2018 Joshua Danielpour
+#     Copyright 2018 Joshua Danielpour
 
-# This file is part of WordSimilarity.
+#    This file is part of WordSimilarity.
 
 #    WordSimilarity is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
