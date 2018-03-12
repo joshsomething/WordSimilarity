@@ -90,7 +90,7 @@ class CharWindow(QtGui.QMainWindow):
 	def __init__(self, pair):
 		super(Window, self).__init__()
 		self.pair = pair
-		self.window = 
+		self.images()
 		self.similarity = 0.0
 		self.setGeometry(100, 100, 600, 600)
 		self.setWindowTitle("Character Similarity scoring.")
