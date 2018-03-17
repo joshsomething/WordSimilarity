@@ -47,6 +47,7 @@ After following the instructions above, to properly use the code in this directo
 Author - Josh Danielpour.
 
 All of the code here is distributed under the Gnu Affero General Public License (wow, that's long!)
+
 See [COPYING](COPYING) for more information.
 
 ### Contributing:
