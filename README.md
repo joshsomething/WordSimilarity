@@ -28,3 +28,8 @@ After following the instructions above, to properly use the code in this directo
 * I would recommend you go through the folders in this order: charSim, then wordSim.
   * Don't worry about the stuff in the characters folder (unless you want to look at the code there).
 * Read the README.md files in the two folders to find out how to run the software.
+
+<dl>
+<p style="font-size:16px">This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License.</p>
+<p style="font-size:16px">To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.</p>
+</dl>
