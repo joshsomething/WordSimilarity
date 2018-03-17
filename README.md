@@ -1,5 +1,18 @@
-WordSimilarity —— Important Instructions:
+WordSimilarity —— Demonstrating a new technique against spoofed phishing.
 ----
+
+### Introduction:
+This project is an experiment to rate the similarity between text, with the
+goal of using this to detect the likelyness of a message being spoofed 
+(by comparing names and addresses).
+
+The overall purpose is to utilize machine learning technologies to better approach spoofing, 
+a technique used in phishing.
+Many cyber crimes are instances of [phishing](https://blog.barkly.com/phishing-statistics-2016), 
+the goal of this project is to better demonstrate the possibility 
+of machines being able to better adapt to threats against the human component of security. 
+The desired result of this project would be the increased development of
+security technologies based on or inspired by this work.
 
 ### Getting da software:
 * python: [python3](https://www.python.org/downloads/)
