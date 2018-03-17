@@ -1,5 +1,5 @@
-Word Similarity Section:
-------
+## Word Similarity Section:
+> *Where the real fun's at*.
 
 #### Loading words, and creating the neural network:
 1. Make a file where each line has a comma seperated word pair, name it words. 
@@ -19,10 +19,9 @@ Just run `python wordSim/tune.py` and enter the feedback requested, until you fe
   * To use some other model file (which isn't created by default), run `python wordSim/useNeuralNetwork.py --custom <filename>`.
 
 
-
-
-
 <dl>
-<p style="font-size:16px">This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License.</p>
-<p style="font-size:16px">To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.</p>
+<br></br>
+<br></br>
+<p style="font-size:13px">This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License.</p>
+<p style="font-size:13px">To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.</p>
 </dl>
