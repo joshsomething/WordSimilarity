@@ -37,21 +37,41 @@ case $i in
 esac
 done
 
-bin/pip install sklearn opencv-python numpy pandas sip
-if [$os -eq "macos"];
-	curl -o PyQt4.tar.gz --tlsv1.2 https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.12.1/PyQt4_gpl_mac-4.12.1.tar.gz
-if [$os -eq "linux"];
-	curl -o PyQt4.tar.gz --tlsv1.2 https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.12.1/PyQt4_gpl_mac-4.12.1.tar.gz
+bin/pip3 install sklearn opencv-python numpy pandas sip
+echo $os
+file=""
+sipfile="sip-4.19.8"
 
-tar -xfz PyQt4.tar.gz
-if [-e PyQt4/configure-ng.py];
-	python PyQt4/configure-ng.py
-else;
-	python PyQt4/configure.py
+if [ $os = "macos" ]; then
+	file="PyQt4_gpl_mac-4.12.1"
+	curl -o PyQt4.tar.gz --tlsv1.2 "https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.12.1/${file}.tar.gz"
+	curl -o "${sipfile}.tar.gz" --tlsv1.2 "https://sourceforge.net/projects/pyqt/files/sip/${sipfile}/${sipfile}.tar.gz"
+fi
 
-make -C PyQt4
-make -C PyQt4 install
+if [ $os = "linux" ]; then
+	file="PyQt4_gpl_x11-4.12.1"
+	wget -O PyQt4.tar.gz "https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.12.1/${file}.tar.gz"
+	wget -O "${sipfile}.tar.gz" "https://sourceforge.net/projects/pyqt/files/sip/${sipfile}/${sipfile}.tar.gz"
+fi
 
+tar -xzf PyQt4.tar.gz
+
+tar -xzf "${sipfile}.tar.gz"
+cd $sipfile
+python3 "configure.py" --prefix="../bin"
+make
+make install
+cd ..
+#if [ -e "${file}/configure-ng.py" ]; then
+#	python -q $(whereis qmake | tr " " "\n" | grep -v "qmake:") "${file}/configure-ng.py"
+#else
+cd $file
+python "${file}/configure.py" --prefix="../bin"
+#fi
+
+make
+make install
+cd ..
 javac TextToGraphics.java
 bash makeCharacters
 deactivate
