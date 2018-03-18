@@ -14,19 +14,19 @@ of machines being able to better adapt to threats against the human component of
 The desired result of this project would be the increased development of
 security technologies based on or inspired by this work.
 
-### Getting da software:
-* python: [python3](https://www.python.org/downloads/)
-* java:
-  * windows and macos: [openjdk](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-  * linux: 
-    * debian: `sudo apt-get install openjdk-8-jdk openjdk-8-jre-headless`
-    * ubuntu: `sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-get update && sudo apt-get install openjdk-7-jdk`
-    * fedora: `sudo dnf install java-1.8.0-openjdk-devel java-1.8.0-openjdk`
+### Installing da software:
+
+#### Mac Os:
+* [python3](https://www.python.org/downloads/)
+* [java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * virtualenv: `pip install virtualenv`
-* qt: 
-  * linux:
-    * debian: `sudo apt-get install python-qt4 libxext-dev build-essential`
-    * ubuntu: `sudo apt-get install python-qt4 qt4-dev-tools libxext-dev build-essential`
+
+#### Gnu/Linux: 
+
+* debian: `sudo apt-get install openjdk-8-jdk openjdk-8-jre-headless build-essential libxext-dev python-qt4-dev python3-pip virtualenv`
+* ubuntu: `sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-get update && sudo apt-get install openjdk-7-jdk libext-dev build-essential qt4-dev-tools`
+* fedora: `sudo dnf install java-1.8.0-openjdk-devel java-1.8.0-openjdk`
+
 
 ### Setting the stuff up: 
 * `cd path/to/WordSimilarity`
