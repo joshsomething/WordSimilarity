@@ -14,7 +14,6 @@
 
 #   You should have received a copy of the GNU Affero General Public License
 #  along with WordSimilarity.  If not, see <http://www.gnu.org/licenses/>.
-    
 
 #!/bin/bash
 
@@ -38,7 +37,9 @@ esac
 done
 
 bin/pip3 install sklearn opencv-python numpy pandas sip
-echo $os
+
+echo $(ls) > before
+
 file=""
 sipfile="sip-4.19.8"
 
@@ -57,21 +58,25 @@ fi
 tar -xzf PyQt4.tar.gz
 
 tar -xzf "${sipfile}.tar.gz"
+rm PyQt4.tar.gz
+rm "${sipfile}.tar.gz"
+
 cd $sipfile
-python3 "configure.py" --prefix="../bin"
+python3 "configure.py"
 make
 make install
 cd ..
-#if [ -e "${file}/configure-ng.py" ]; then
-#	python -q $(whereis qmake | tr " " "\n" | grep -v "qmake:") "${file}/configure-ng.py"
-#else
+
 cd $file
-python "${file}/configure.py" --prefix="../bin"
-#fi
+python3 "configure.py"
 
 make
 make install
 cd ..
+
+
 javac TextToGraphics.java
 bash makeCharacters
 deactivate
+
+echo $(ls) > after
