@@ -37,7 +37,7 @@ case $i in
 esac
 done
 
-bin/pip install sklearn cv2 numpy pandas SIP 
+bin/pip install sklearn opencv-python numpy pandas sip
 if [$os -eq "macos"];
 	curl -o PyQt4.tar.gz --tlsv1.2 https://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.12.1/PyQt4_gpl_mac-4.12.1.tar.gz
 if [$os -eq "linux"];
