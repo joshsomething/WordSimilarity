@@ -3,8 +3,8 @@
 
 ## Introduction:
 This project is an experiment to rate the similarity between text, with the
-goal of using this to detect the likelyness of a message being spoofed 
-(by comparing names and addresses).
+goal of using this to detect the likelyness of a message being spoofed in a specific way. This project focuses on phishers that don’t *completely* disguise as someone else (to avoid DMARC et al), but make it easy for their messages to be **mistaken as coming from someone else**
+(as in the names and addresses are ).
 
 The overall purpose is to utilize machine learning technologies to better approach spoofing, 
 a technique used in phishing.
