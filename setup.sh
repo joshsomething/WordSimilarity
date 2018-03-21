@@ -22,6 +22,8 @@ set -u
 set -o pipefail
 source bin/activate
 
+buildPyQt=1
+
 for i in "$@"
 do
 case $i in
@@ -33,6 +35,10 @@ case $i in
     os="linux"
     shift # past argument=value
     ;;
+    -—premade*)
+    buildPyQt=0
+    shift
+    ;;
     *)
     echo "Enter operating system, (I don't work with windows)"     # unknown option
     ;;
@@ -40,6 +46,12 @@ esac
 done
 
 bin/pip3 install sklearn opencv-python numpy pandas sip
+
+# Decide if PyQt library needs to be
+# built:
+
+if [ $buildPyQt -eq 1]; then
+
 
 file=""
 sipfile="sip-4.19.8"
@@ -75,6 +87,7 @@ make
 make install
 cd ..
 
+fi # End of building stuff.
 
 javac TextToGraphics.java
 bash makeCharacters
