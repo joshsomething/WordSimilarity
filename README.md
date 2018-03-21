@@ -1,6 +1,8 @@
 # WordSimilarity
 > Demonstrating a new technique against spoofed phishing.
 
+[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/joshsomething/WordSimilarity)
+
 ## Introduction:
 This project is an experiment to rate the similarity between text, with the
 goal of using this to detect the likelyness of a message being spoofed in a specific way. This project focuses on phishers that don’t *completely* disguise as someone else (to avoid DMARC et al), but make it easy for their messages to be **mistaken as coming from someone else**
