@@ -1,7 +1,8 @@
 # WordSimilarity
 > Demonstrating a new technique against spoofed phishing.
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/joshsomething/WordSimilarity/commits/master)
+[![GitHub last commit](https://img.shields.io/github/last-commit/joshsomething/WordSimilarity.svg)](https://github.com/joshsomething/WordSimilarity/commits)
+[![GitHub issues](https://img.shields.io/github/issues/joshsomething/WordSimilarity.svg)](https://github.com/joshsomething/WordSimilarity/issues)
 
 ## Introduction:
 This project is an experiment to rate the similarity between text, with the
