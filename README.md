@@ -6,7 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/joshsomething/WordSimilarity.svg)](https://github.com/joshsomething/WordSimilarity/issues)
 [![GitHub stars](https://img.shields.io/github/stars/joshsomething/WordSimilarity.svg)](https://github.com/joshsomething/WordSimilarity/stargazers)
 [![GitHub search hit counter](https://img.shields.io/github/search/joshsomething/WordSimilarity/goto.svg)](https://github.com/joshsomething/WordSimilarity)
-[![GitHub top language](https://img.shields.io/github/languages/top/joshsomething/WordSimilarity.svg)
+[![GitHub top language](https://img.shields.io/github/languages/top/joshsomething/WordSimilarity.svg)]()
 
 ## Introduction:
 This project is an experiment to rate the similarity between text, with the
