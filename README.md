@@ -1,8 +1,12 @@
 # WordSimilarity
 > Demonstrating a new technique against spoofed phishing.
 
+
 [![GitHub last commit](https://img.shields.io/github/last-commit/joshsomething/WordSimilarity.svg)](https://github.com/joshsomething/WordSimilarity/commits)
 [![GitHub issues](https://img.shields.io/github/issues/joshsomething/WordSimilarity.svg)](https://github.com/joshsomething/WordSimilarity/issues)
+[![GitHub stars](https://img.shields.io/github/stars/joshsomething/WordSimilarity.svg)](https://github.com/joshsomething/WordSimilarity/stargazers)
+[![GitHub search hit counter](https://img.shields.io/github/search/joshsomething/WordSimilarity.svg)](https://github.com/joshsomething/WordSimilarity)
+[![GitHub top language](https://img.shields.io/github/languages/top/joshsomething/WordSimilarity.svg)
 
 ## Introduction:
 This project is an experiment to rate the similarity between text, with the
