@@ -30,7 +30,7 @@ security technologies based on or inspired by this work.
 
 ### Setting the stuff up: 
 * `cd path/to/WordSimilarity`
-* `virtualenv $(pwd)`
+* `virtualenv —-system-site-packages -—always-copy -p python3 $(pwd)`
 * `bash setup.sh --macos` if macos
 * `bash setup.sh --linux` if linux
 
