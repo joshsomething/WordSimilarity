@@ -17,6 +17,9 @@
 
 #!/bin/bash
 
+set -e
+set -u
+set -o pipefail
 source bin/activate
 
 for i in "$@"
@@ -37,8 +40,6 @@ esac
 done
 
 bin/pip3 install sklearn opencv-python numpy pandas sip
-
-echo $(ls) > before
 
 file=""
 sipfile="sip-4.19.8"
@@ -78,5 +79,3 @@ cd ..
 javac TextToGraphics.java
 bash makeCharacters
 deactivate
-
-echo $(ls) > after

@@ -26,6 +26,9 @@
 #image pictures are 50 by 56 (x by y)
 #all images are left-adjusted without additional configuration
 
+set -e
+set -u
+set -o pipefail
 
 # characters a to z:
 for letter in {a..z};
@@ -48,4 +51,3 @@ echo " " | java TextToGraphics
 cat "characters/\ .png" > "characters/blank.png"
 
 rm "characters/\ .png"
-python "characters/adjustImage.py" blank.png
