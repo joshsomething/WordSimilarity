@@ -19,7 +19,8 @@
 
 # bin/activate script causes set -u to get mad,
 # 'unset' that param in bin/activate:
-if [ -z $(cat bin/activate | grep "set +u") ]; then
+check=$(cat bin/activate | grep "set +u")
+if [ -z check ]; then
 	sed -i.bak '1i''set +u' bin/activate
 fi
 
