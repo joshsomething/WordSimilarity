@@ -17,6 +17,11 @@
 
 #!/bin/bash
 
+# bin/activate script causes set -u to get mad,
+# 'unset' that param in bin/activate:
+if [ -z $(cat bin/activate | grep "set +u") ]; then
+	sed -i.bak '1i''set +u' bin/activate
+
 set -e
 set -u
 set -o pipefail
