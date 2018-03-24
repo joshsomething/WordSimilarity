@@ -31,7 +31,7 @@ security technologies based on or inspired by this work.
 #### Gnu/Linux: 
 
 * debian: `sudo apt-get install openjdk-8-jdk openjdk-8-jre-headless build-essential libxext-dev python-qt4-dev python3-pip virtualenv`
-* ubuntu: `sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-get update && sudo apt-get install openjdk-7-jdk libext-dev build-essential qt4-dev-tools`
+* ubuntu: `sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-get update && sudo apt-get install openjdk-7-jdk libext-dev build-essential qt4-dev-tools libqt4-dev python3-tk`
 * fedora: `sudo dnf install java-1.8.0-openjdk-devel java-1.8.0-openjdk`
 
 

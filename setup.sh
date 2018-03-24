@@ -45,7 +45,7 @@ case $i in
 esac
 done
 
-bin/pip3 install sklearn opencv-python numpy pandas sip
+bin/pip3 install sklearn opencv-python numpy pandas sip pillow matplotlib
 
 # Decide if PyQt library needs to be
 # built:
