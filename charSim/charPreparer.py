@@ -31,6 +31,7 @@ for digit in range(10):
 import numpy as np
 import cv2 #for images.
 import math #for rand
+from getImg.py import getImg
 #make a matrix of characters and their filename:
 length = 36 #size of matrix
 
@@ -47,8 +48,8 @@ class CharPair:
 	
 	def getPics(self, one=None, two=None):
 		if (one == None):
-			return [cv2.imread("../characters/" + (self.firstChar if self.firstChar != " " else "blank") + ".png", 0), cv2.imread("../characters/" + (self.secondChar if self.secondChar != " " else "blank") + ".png", 0)
-		return [cv2.imread("../characters/" + (one if one != " " else "blank") + ".png", 0), cv2.imread("../characters/" + (two if two != " " else "blank") + ".png", 0)
+			return [getImg("../characters/" + (self.firstChar if self.firstChar != " " else "blank") + ".png"), getImg("../characters/" + (self.secondChar if self.secondChar != " " else "blank") + ".png")
+		return [getImg("../characters/" + (one if one != " " else "blank") + ".png"), getImg("../characters/" + (two if two != " " else "blank") + ".png")
 		
 	def getDiff(self, one=None, two=None):
 		charOne, charTwo = getPics(one, two)
