@@ -43,9 +43,9 @@ do
 done
 
 # create a blank character:
-echo " " | python3 TextToGraphics.py $(cat /dev/stdin)
+python3 TextToGraphics.py " "
 
 #rename character
-cat "characters/\ .png" > "characters/blank.png"
+cat "characters/ .png" > "characters/blank.png"
 
-rm "characters/\ .png"
+rm "characters/ .png"
