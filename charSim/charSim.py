@@ -30,7 +30,7 @@ with open("sklearn_version", 'r') as f:
 mlp = joblib.load('charSim.pkl') #you are my everything.
 
 #extend CharPair class in charPreparer:
-from charPreparer.py import CharPair
+from .charPreparer import CharPair
 
 class CharSim(CharPair):
 	def __init__(self, firstChar=None, secondChar=None):

@@ -18,7 +18,7 @@
     
 '''
 
-import generator.py
+from .generator import *
 #get user input:
 pre_df = generateFromUser()
 if (type(pre_df) is int and pre_df < 0):

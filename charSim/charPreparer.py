@@ -22,8 +22,8 @@
 
 # load character list
 charList = [] #character list
-for letter in chr(range(97, 123)):
-	charList.append(letter)
+for letter in range(97, 123):
+	charList.append(chr(letter))
 
 for digit in range(10):
 	charList.append(chr(digit + ord('0')))
@@ -31,7 +31,7 @@ for digit in range(10):
 import numpy as np
 import cv2 #for images.
 import math #for rand
-from getImg.py import getImg
+from .getImg import getImg
 #make a matrix of characters and their filename:
 length = 36 #size of matrix
 
@@ -48,8 +48,10 @@ class CharPair:
 	
 	def getPics(self, one=None, two=None):
 		if (one == None):
-			return [getImg("../characters/" + (self.firstChar if self.firstChar != " " else "blank") + ".png"), getImg("../characters/" + (self.secondChar if self.secondChar != " " else "blank") + ".png")
-		return [getImg("../characters/" + (one if one != " " else "blank") + ".png"), getImg("../characters/" + (two if two != " " else "blank") + ".png")
+			return [getImg("../characters/" + (self.firstChar if self.firstChar != " " else "blank") + ".png")
+				, getImg("../characters/" + (self.secondChar if self.secondChar != " " else "blank") + ".png")]
+		return [getImg("../characters/" + (one if one != " " else "blank") + ".png")
+			, getImg("../characters/" + (two if two != " " else "blank") + ".png")]
 		
 	def getDiff(self, one=None, two=None):
 		charOne, charTwo = getPics(one, two)
@@ -100,7 +102,7 @@ class CharWindow(QtGui.QMainWindow):
 		self.enter()
 		
 		self.show()
-	def enter(self)
+	def enter(self):
 		btn = QtGui.QPushButton("Enter", self)
 		btn.move(500, 300)
 		

@@ -18,7 +18,7 @@
     
 '''
 
-from wordPreparer.py import UnevenWordPair
+from .wordPreparer import UnevenWordPair
 import sklearn
 import numpy as np
 

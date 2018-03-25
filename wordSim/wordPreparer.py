@@ -22,7 +22,7 @@
 #"abc", "bac" : sim: [a-a, b-c, c-c], sim: [
 import sklearn
 import numpy as np
-from "../charSim/charSim.py" import CharSim
+from ../charSim/charSim import CharSim
 import pandas as pd
 from decimal import Decimal
 class WordPair(CharSim):

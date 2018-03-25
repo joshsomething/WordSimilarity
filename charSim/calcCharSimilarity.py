@@ -27,7 +27,7 @@ import math
 import sklearn as skl
 
 #use the class defined in charSim.py:
-from charPreparer.py import CharPair #use this to get user input and whatnot
+from .charPreparer import CharPair #use this to get user input and whatnot
 
 #data layout: pairs of data, difference, similarity
 	#pairs of data: name (letter/number) and picture (we don't have to worry about this part)

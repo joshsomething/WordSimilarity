@@ -19,8 +19,8 @@
 '''
 
 
-from wordPreparer.py import * #feelin' lazy.
-from generator.py import *
+from .wordPreparer import * #feelin' lazy.
+from .generator import *
 import sys
 modelFile = ""
 if ("--use-tuned" in sys.argv or "-t" in sys.argv):
