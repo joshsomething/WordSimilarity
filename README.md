@@ -23,16 +23,16 @@ security technologies based on or inspired by this work.
 
 ### Installing da software:
 
-#### Mac Os:
+#### Mac Os (work in progress):
 * [python3](https://www.python.org/downloads/)
 * [java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * virtualenv: `pip install virtualenv`
 
 #### Gnu/Linux: 
 
-* debian: `sudo apt-get install openjdk-8-jdk openjdk-8-jre-headless build-essential libxext-dev python-qt4-dev python3-pip virtualenv`
-* ubuntu: `sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-get update && sudo apt-get install openjdk-7-jdk libext-dev build-essential qt4-dev-tools libqt4-dev python3-tk`
-* fedora: `sudo dnf install java-1.8.0-openjdk-devel java-1.8.0-openjdk`
+* debian: `sudo apt-get install openjdk-8-jdk openjdk-8-jre-headless build-essential libxext-dev python-qt4-dev python3-pip virtualenv libqt4-dev fonts-arkpandora`
+* ubuntu (not tested): `sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-get update && sudo apt-get install openjdk-7-jdk libext-dev build-essential qt4-dev-tools libqt4-dev`
+* fedora (work in progress): `sudo dnf install java-1.8.0-openjdk-devel java-1.8.0-openjdk`
 
 
 ### Setting the stuff up: 
