@@ -52,7 +52,7 @@ case $i in
 esac
 done
 
-bin/pip3 install sklearn opencv-python numpy pandas sip pillow matplotlib
+bin/pip3 install sklearn opencv-python numpy pandas sip pillow
 
 # Decide if PyQt library needs to be
 # built:
@@ -96,6 +96,5 @@ cd ..
 
 fi # End of building stuff.
 
-javac TextToGraphics.java
 bash makeCharacters
 deactivate

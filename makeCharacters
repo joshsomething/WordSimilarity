@@ -33,19 +33,17 @@ set -o pipefail
 # characters a to z:
 for letter in {a..z};
 do
-	java TextToGraphics $letter #create picture
-	python characters/adjustImage.py $letter #center image
+	python3 TextToGraphics.py $letter #create picture
 done
 
 # characters 0 to 9:
 for digit in {0..9};
 do
-	java TextToGraphics $digit #create picture
-	python characters/adjustImage.py $digit #center image
+	python3 TextToGraphics.py $digit #create picture
 done
 
 # create a blank character:
-echo " " | java TextToGraphics
+echo " " | python3 TextToGraphics.py $(cat /dev/stdin)
 
 #rename character
 cat "characters/\ .png" > "characters/blank.png"

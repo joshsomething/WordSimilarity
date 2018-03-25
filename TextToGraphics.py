@@ -8,4 +8,4 @@ draw = ImageDraw.Draw(image) # Drawing object
 font = ImageFont.truetype("/usr/share/fonts/truetype/arkpandora/Aerial.ttf", size=25)
 draw.text((50, 50), text, 0, font=font)
 
-image.save(text + ".png", "PNG")
+image.save("characters/" + text + ".png", "PNG")
