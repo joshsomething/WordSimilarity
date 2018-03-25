@@ -21,10 +21,9 @@
     
 
 
-# Generates characters in dir characters for the comparison dataset:
+# Generates characters in dir characters for the comparison:
 
-#image pictures are 50 by 56 (x by y)
-#all images are left-adjusted without additional configuration
+# All images are centered without additional configuration.
 
 set -e
 set -u
