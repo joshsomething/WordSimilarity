@@ -40,8 +40,8 @@ security technologies based on or inspired by this work.
 * `virtualenv —-system-site-packages -—always-copy -p python3 $(pwd)`
 * `bash setup.sh --macos` if macos
 * Linux:
- * If you preinstalled pyqt4: `bash setup.sh --linux —-premade`
- * Otherwise: `bash setup.sh --linux`
+  * If you preinstalled pyqt4: `bash setup.sh --linux —-premade`
+  * Otherwise: `bash setup.sh --linux`
 
 ### Using the software:
 After following the instructions above, to properly use the code in this directory:
