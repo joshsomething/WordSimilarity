@@ -30,9 +30,12 @@ for digit in range(10):
 
 import numpy as np
 import cv2 #for images.
-import math #for rand
-from .getImg import getImg
-#make a matrix of characters and their filename:
+import math
+from random import random
+from getImg import getImg
+import sys # For gui stuff.
+import atexit # also for gui
+# Make a matrix of characters and their filename:
 length = 36 #size of matrix
 
 class CharPair:
@@ -43,25 +46,27 @@ class CharPair:
 		else:
 			self.firstChar = ""
 			self.secondChar = ""
+		self.similarity = None
 	def getPair(self):
 		return [firstChar, secondChar]
 	
 	def getPics(self, one=None, two=None):
 		if (one == None):
-			return [getImg("../characters/" + (self.firstChar if self.firstChar != " " else "blank") + ".png")
-				, getImg("../characters/" + (self.secondChar if self.secondChar != " " else "blank") + ".png")]
-		return [getImg("../characters/" + (one if one != " " else "blank") + ".png")
-			, getImg("../characters/" + (two if two != " " else "blank") + ".png")]
-		
+			first = getImg("../characters/" + (self.firstChar if self.firstChar != " " else "blank") + ".png")
+			second = getImg("../characters/" + (self.secondChar if self.secondChar != " " else "blank") + ".png")
+			return list([first, second])
+		first = getImg("../characters/" + (one if one != " " else "blank") + ".png")
+		second = getImg("../characters/" + (two if two != " " else "blank") + ".png")
+		return list([first, second])
+
 	def getDiff(self, one=None, two=None):
-		charOne, charTwo = getPics(one, two)
-		
+		charOne, charTwo = self.getPics(one, two)
 		diff = [[0 for x in range(len(charOne[0]))] for y in range(len(charOne))]
 		for x in range(len(charOne)):
 			for y in range(len(charTwo)):
 				#it's okay that we can get negative values.
 				diff[x][y] = charOne[x][y] - charTwo[x][y]
-		
+
 		return diff
 	
 	def setPair(self, one, two):
@@ -69,66 +74,76 @@ class CharPair:
 		self.secondChar = two
 		
 	
+
 	#pick pair, if specified, will make sure pair is unique
 	def pickPair(pairList=None):
 		#try to get pair:
-		attemptPair = [charList[int(math.random() * 37 )], charList[int(math.random() * 37 )]]
+		attemptPair = [charList[int(random() * 36)], charList[int(random() * 36)]]
 		
 		#make sure pair is unique, and that the two members of pair are different:
+		# TODO: stop recursioning when pairList length equals all the combinations of characters.
 		if (attemptPair[0] == attemptPair[1] or (pairList != None and attemptPair in pairList)):
-			return pickPair(pairList)
-	
-	import sys
-	
+			return CharPair.pickPair(pairList)
+		else:
+			return attemptPair
+
 	#will return similarity score
-	def displayPair():
+	def displayPair(self):
 		app = QtGui.QApplication(sys.argv)
-		
-		return CharWindow([self.charOne, self.charTwo]).similarity
-		
-    	
+		main = CharWindow([self.firstChar, self.secondChar])
+		def exithandle():
+			self.similarity = main.similarity
+		atexit.register(exithandle)
+		sys.exit(app.exec_())
+
+import time
 from PyQt4 import QtGui
 from PyQt4.QtCore import *
 class CharWindow(QtGui.QMainWindow):
 	def __init__(self, pair):
-		super(Window, self).__init__()
+		super(CharWindow, self).__init__()
 		self.pair = pair
-		self.images()
+		self.imageOne, self.imageTwo = self.images()
 		self.similarity = 0.0
 		self.setGeometry(100, 100, 600, 600)
 		self.setWindowTitle("Character Similarity scoring.")
-		self.entry()
-		self.instructions()
-		self.enter()
-		
+		self.textbox = self.entry()
+		self.info = self.instructions()
+		self.button = self.enter()
+		self.connect(self.button, SIGNAL("clicked()"), self.getstuff)
 		self.show()
 	def enter(self):
 		btn = QtGui.QPushButton("Enter", self)
 		btn.move(500, 300)
+		return btn
 		
 	def instructions(self):
 		textbox = QtGui.QLabel()
 		textbox.setText("Please enter the similarity (%):")
 		textbox.setAlignment(Qt.AlignCenter)
+		return textbox
 		
 	def images(self):
-		imageLeft = QLabel(self)
-		imageRight = QLabel(self)
-		imageLeft.setPixmap(QPixmap("../characters/" + (self.pair[0] if self.pair[0] != " " else "blank") + ".png"))
-		imageRight.setPixmap(QPixmap("../characters/" + (self.pair[1] if self.pair[1] != " " else "blank") + ".png"))
+		print("hi")
+		imageLeft = QtGui.QLabel(self)
+		imageRight = QtGui.QLabel(self)
+		imageLeft.setPixmap(QtGui.QPixmap("../characters/" + (self.pair[0] if self.pair[0] != " " else "blank") + ".png"))
+		imageRight.setPixmap(QtGui.QPixmap("../characters/" + (self.pair[1] if self.pair[1] != " " else "blank") + ".png"))
 		imageLeft.setAlignment(Qt.AlignLeft)
 		imageRight.setAlignment(Qt.AlignRight)
+		return (imageLeft, imageRight)
 		
 	def entry(self):
-		box = QLineEdit(self)
-		box.setValidator(QDoubleValidator())
+		box = QtGui.QLineEdit(self)
+		box.setValidator(QtGui.QDoubleValidator())
 		box.setMaxLength(10)
 		box.setAlignment(Qt.AlignCenter)
-		box.setFont(QFont("Arial", 20))
-		box.connect(self.enter, SIGNAL("clicked()"), self.getstuff)
-		
-	def getstuff(self, value):
-		self.similarity = value
+		box.setFont(QtGui.QFont("Arial", 20))
+		return box
+
+	def getstuff(self):
+		print("hi")
+		self.similarity = self.box.text()
 		self.close()
 
 

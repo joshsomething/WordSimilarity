@@ -27,7 +27,7 @@ import math
 import sklearn as skl
 
 #use the class defined in charSim.py:
-from .charPreparer import CharPair #use this to get user input and whatnot
+from charPreparer import CharPair #use this to get user input and whatnot
 
 #data layout: pairs of data, difference, similarity
 	#pairs of data: name (letter/number) and picture (we don't have to worry about this part)
@@ -41,12 +41,17 @@ for pairy in range(1, 60):
 	pairs.append(CharPair.pickPair(pairs))
 
 #add difference and similarity into the picture (no pun intended ... or is it):
-differences = CharPair(pairs[0]).getDiff()
-similarities = CharPair(pairs[0]).displayPair()
+differences = CharPair(pairs[0][0], pairs[0][1]).getDiff()
+similarities = []
+CP = CharPair(pairs[0][0], pairs[0][1])
+CP.displayPair()
+similarities = [CP.similarity]
+
 for i in range(1, 60):
-	currentPair = CharPair(pairs[i])
+	currentPair = CharPair(pairs[i][0], pairs[i][1])
 	differences.append(currentPair.getDiff())
-	similarities.append(currentPair.displayPair())
+	currentPair.displayPair()
+	similarities.append(currentPair.similarity)
 
 from pandas import pd
 #make dataset:
