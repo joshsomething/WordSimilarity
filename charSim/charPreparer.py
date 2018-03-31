@@ -104,7 +104,7 @@ class CharWindow(QtGui.QMainWindow):
 		super(CharWindow, self).__init__()
 		self.pair = pair
 		self.imageOne, self.imageTwo = self.images()
-		self.similarity = 0.0
+		self.similarity = ''
 		#setGeometry(self, x, y, width, height)
 		self.setGeometry(100, 100, 500, 180)
 		self.setWindowTitle("Character Similarity scoring.")
@@ -147,6 +147,12 @@ class CharWindow(QtGui.QMainWindow):
 	def getstuff(self):
 		self.similarity = self.textbox.text()
 		self.close()
+
+	def keyPressEvent(self, event):
+		if (event.key() == QtCore.Qt.Key_Return):
+			self.similarity = self.textbox.text()
+			self.close()
+
 import sys
 if (__name__ == '__main__'):
 	charOne = charTwo = ''
