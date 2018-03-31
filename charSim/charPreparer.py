@@ -105,45 +105,49 @@ class CharWindow(QtGui.QMainWindow):
 		self.pair = pair
 		self.imageOne, self.imageTwo = self.images()
 		self.similarity = 0.0
-		self.setGeometry(100, 100, 600, 600)
+		#setGeometry(self, x, y, width, height)
+		self.setGeometry(100, 100, 500, 180)
 		self.setWindowTitle("Character Similarity scoring.")
-		self.textbox = self.entry()
-		self.info = self.instructions()
+		self.info = self.instructions() # 'Friendly' advice telling user about the textbox program.
 		self.button = self.enter()
+		self.textbox = self.entry() # Box that user will put stuff in.
 		self.connect(self.button, SIGNAL("clicked()"), self.getstuff)
 		self.show()
 	def enter(self):
 		btn = QtGui.QPushButton("Enter", self)
-		btn.move(500, 300)
+		btn.move(300, 42)
 		return btn
 		
 	def instructions(self):
-		textbox = QtGui.QLabel()
+		textbox = QtGui.QLabel(self)
+		textbox.resize(220, 40)
 		textbox.setText("Please enter the similarity (%):")
-		textbox.setAlignment(Qt.AlignCenter)
+		textbox.move(150,0)
 		return textbox
 		
 	def images(self):
 		print("hi")
 		imageLeft = QtGui.QLabel(self)
+		imageLeft.resize(100,100)
 		imageRight = QtGui.QLabel(self)
+		imageRight.resize(100,100)
 		imageLeft.setPixmap(QtGui.QPixmap("../characters/" + (self.pair[0] if self.pair[0] != " " else "blank") + ".png"))
 		imageRight.setPixmap(QtGui.QPixmap("../characters/" + (self.pair[1] if self.pair[1] != " " else "blank") + ".png"))
-		imageLeft.setAlignment(Qt.AlignLeft)
-		imageRight.setAlignment(Qt.AlignRight)
+		imageLeft.move(0,0)
+		imageRight.move(400,0)
 		return (imageLeft, imageRight)
 		
 	def entry(self):
 		box = QtGui.QLineEdit(self)
 		box.setValidator(QtGui.QDoubleValidator())
 		box.setMaxLength(10)
-		box.setAlignment(Qt.AlignCenter)
+		box.move(200, 2 + self.info.frameRect().height())
 		box.setFont(QtGui.QFont("Arial", 20))
 		return box
 
 	def getstuff(self):
 		print("hi")
-		self.similarity = self.box.text()
+		self.similarity = self.textbox.text()
 		self.close()
 
 
