@@ -126,7 +126,6 @@ class CharWindow(QtGui.QMainWindow):
 		return textbox
 		
 	def images(self):
-		print("hi")
 		imageLeft = QtGui.QLabel(self)
 		imageLeft.resize(100,100)
 		imageRight = QtGui.QLabel(self)
@@ -146,7 +145,6 @@ class CharWindow(QtGui.QMainWindow):
 		return box
 
 	def getstuff(self):
-		print("hi")
 		self.similarity = self.textbox.text()
 		self.close()
 
