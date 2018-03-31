@@ -25,21 +25,23 @@ security technologies based on or inspired by this work.
 
 #### Mac Os (work in progress):
 * [python3](https://www.python.org/downloads/)
-* [java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * virtualenv: `pip install virtualenv`
 
 #### Gnu/Linux: 
 
-* debian: `sudo apt-get install openjdk-8-jdk openjdk-8-jre-headless build-essential libxext-dev python-qt4-dev python3-pip virtualenv libqt4-dev fonts-arkpandora`
-* ubuntu (not tested): `sudo add-apt-repository ppa:openjdk-r/ppa && sudo apt-get update && sudo apt-get install openjdk-7-jdk libext-dev build-essential qt4-dev-tools libqt4-dev`
-* fedora (work in progress): `sudo dnf install java-1.8.0-openjdk-devel java-1.8.0-openjdk`
+* debian: `sudo apt-get install python3 libxext-dev python3-pip virtualenv python3-pyqt4 fonts-arkpandora`
+  * To build qt4: `sudo apt-get install build-essential libxext-dev python-qt4-dev python3-pip virtualenv libqt4-dev fonts-arkpandora`
+* ubuntu (not tested): `sudo apt-get install build-essential libext-dev python3 python3-pip virtualenv qt4-dev-tools libqt4-dev fonts-arkpandora`
+* fedora (under development):
 
 
 ### Setting the stuff up: 
 * `cd path/to/WordSimilarity`
 * `virtualenv —-system-site-packages -—always-copy -p python3 $(pwd)`
 * `bash setup.sh --macos` if macos
-* `bash setup.sh --linux` if linux
+* Linux:
+ * If you preinstalled pyqt4: `bash setup.sh --linux —-premade`
+ * Otherwise: `bash setup.sh --linux`
 
 ### Using the software:
 After following the instructions above, to properly use the code in this directory:
