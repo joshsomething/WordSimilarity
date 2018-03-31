@@ -92,7 +92,7 @@ class CharPair:
 		app = QtGui.QApplication(sys.argv)
 		main = CharWindow([self.firstChar, self.secondChar])
 		def exithandle():
-			self.similarity = main.similarity
+			print('Similarity: ' + main.similarity)
 		atexit.register(exithandle)
 		sys.exit(app.exec_())
 
@@ -147,5 +147,10 @@ class CharWindow(QtGui.QMainWindow):
 	def getstuff(self):
 		self.similarity = self.textbox.text()
 		self.close()
-
-
+import sys
+if (__name__ == '__main__'):
+	charOne = charTwo = ''
+	if (sys.argv[0] != '—-font'):
+		charOne = sys.argv[0]
+		charTwo = sys.argv[1]
+	CharPair(charOne,charTwo).displayPair()

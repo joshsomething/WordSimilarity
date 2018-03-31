@@ -39,19 +39,15 @@ pairs = [CharPair.pickPair()]
 #add more pairs, again up to 60:
 for pairy in range(1, 60):
 	pairs.append(CharPair.pickPair(pairs))
-
+from subprocess import call, Popen
 #add difference and similarity into the picture (no pun intended ... or is it):
-differences = CharPair(pairs[0][0], pairs[0][1]).getDiff()
-similarities = []
-CP = CharPair(pairs[0][0], pairs[0][1])
-CP.displayPair()
-similarities = [CP.similarity]
+differences = [CharPair(pairs[0][0], pairs[0][1]).getDiff()]
+similarities = [float(Popen(['getSim.sh', pairs[0][0], pairs[0][1]], stdout=PIPE).communicate())]
 
 for i in range(1, 60):
 	currentPair = CharPair(pairs[i][0], pairs[i][1])
-	differences.append(currentPair.getDiff())
-	currentPair.displayPair()
-	similarities.append(currentPair.similarity)
+	differences.append([currentPair.getDiff()])
+	similarities.append([float(Popen(['getSim.sh', pairs[i][0], pairs[i][1]], stdout=PIPE).communicate())])
 
 from pandas import pd
 #make dataset:

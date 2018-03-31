@@ -1,0 +1,3 @@
+# I need to run the gui from a shell script
+# because the gui seems to exit all of python...
+echo $(python3 charPreparer.py $1 $2 | grep 'Similarity:' | tr ' ' '\n' | tail -n 1)
