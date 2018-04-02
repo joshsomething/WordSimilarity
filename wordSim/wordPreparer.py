@@ -1,4 +1,4 @@
-'''	Copyright 2018 Joshua Danielpour
+'''	 Copyright 2018 Joshua Danielpour
 
 
 	This file is part of WordSimilarity.
@@ -15,16 +15,15 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with WordSimilarity.  If not, see <http://www.gnu.org/licenses/>.
-    
 '''
 
-#[ [similarities at each index], [similarities (first -> second + 1)], [
-#"abc", "bac" : sim: [a-a, b-c, c-c], sim: [
+#[ [similarities at each index], [similarities (first -> second + 1)],
+#"abc", "bac" : sim: [a-a, b-c, c-c], sim: []
 import sklearn
 import numpy as np
-from ../charSim/charSim import CharSim
+from ../charSim/_charSim import CharSim
 import pandas as pd
-from decimal import Decimal
+
 class WordPair(CharSim):
 	def __init__(self, wordOne=None, wordTwo=None):
 		if (wordOne != None):
@@ -63,12 +62,12 @@ class WordPair(CharSim):
 		simy = open(sims, "r")
 		
 		line = simy.readline()
-		sims = [Decimal(line)]
+		sims = [float(line)]
 		while (True):
 			line = simy.readline()
 			if (line == ""):
 				break
-			sims += [Decimal(line)]
+			sims += [float(line)]
 		simy.close()
 		
 		dataset = {"Pairs": words, "Similarities": sims}
@@ -107,7 +106,7 @@ def kindlyPadWords(wordOne, wordTwo, timeLimit = 15, reductionTime = 3):
 	if (firstLess):
 		previous = ""
 		timeLoop = time.time()
-		for pos in xrange(len(one)):
+		for pos in range(len(one)):
 			if (numBlanks == 0 or blankLimit == 0 or time.time() - timestart > timeLimit):
 				return [one, two]
 			elif (time.time() - timeLoop > reductionTime):
@@ -116,7 +115,7 @@ def kindlyPadWords(wordOne, wordTwo, timeLimit = 15, reductionTime = 3):
 				timeLoop = time.time()
 				
 			placed = 0
-			for place in xrange(1, (blankLimit if blankLimit <= numBlanks else numBlanks) + 1):
+			for place in range(1, (blankLimit if blankLimit <= numBlanks else numBlanks) + 1):
 				placement = WordPair( (previous + (" " * place) + wordOne[pos:] + (" " * (numBlanks - place))), wordTwo)
 				if (placement.meanSim() > current):
 					current = placement.meanSim()
@@ -131,7 +130,7 @@ def kindlyPadWords(wordOne, wordTwo, timeLimit = 15, reductionTime = 3):
 	else:
 		previous = ""
 		timeLoop = time.time()
-		for pos in xrange(len(one)):
+		for pos in range(len(one)):
 			if (numBlanks == 0 or blankLimit == 0 or time.time() - timestart > timeLimit):
 				return [one, two]
 			elif (time.time() - timeLoop > reductionTime):
@@ -140,7 +139,7 @@ def kindlyPadWords(wordOne, wordTwo, timeLimit = 15, reductionTime = 3):
 				timeLoop = time.time()
 			
 			placed = 0
-			for place in xrange(1, (blankLimit if blankLimit <= numBlanks else numBlanks) + 1):
+			for place in range(1, (blankLimit if blankLimit <= numBlanks else numBlanks) + 1):
 				placement = WordPair( wordOne, (previous + (" " * place) + wordTwo[pos:] + (" " * (numBlanks - place))))
 				if (placement.meanSim() > current):
 					current = placement.meanSim()
@@ -164,14 +163,15 @@ class UnevenWordPair(WordPair):
 		return WordPair(one, two)
 	
 	def getRaw(self):
-		return self.rawPair()
+		return self.rawPair
+
 	def getFinalArrangement(self):
 		rawlyPadded = self.rawPair
 		nicelyPadded = WordPair(self.rearrangedPair)
 		
 		diffArrangement = [ 
-			([self.rawPair.getDiffs()] + self.rawPair.getCrossDiffs()),
-			([nicelyPadded.getDiffs()] + nicelyPadded.getCrossDiffs())
+			([self.rawPair.getDiffs()] + [self.rawPair.getCrossDiffs()]),
+			([nicelyPadded.getDiffs()] + [nicelyPadded.getCrossDiffs()])
 			]
 		
 		finalSims = [[CharPair().getSims(diffArrangement[0][i]) for i in range(3)]]
